@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import diplib as dip
 from functions_iris_inbound import extract_adaptive_thershold, applymedianfilter, applyadpthershold, morphological_operations, find_circularity, calculate_centroid, getradiuspupil
 
-def get_radius_pupil(image):
+def get_pupil(image):
 
     #image1 = cv.imread('C:/Users/Paul/Desktop/DataSets/CASIA-Iris-Interval-20240212T013505Z-001/CASIA-Iris-Interval/001/L/S1001L01.jpg') #025
 

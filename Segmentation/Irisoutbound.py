@@ -3,15 +3,15 @@ import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
 #from functions_iris_outbound import display_image
-from Irisinbound import get_radius_pupil
+from Irisinbound import get_pupil
 
 image1 = cv.imread('C:/Users/Paul/Desktop/DataSets/CASIA-Iris-Interval-20240212T013505Z-001/CASIA-Iris-Interval/002/L/S1002L03.jpg') #025
 
 ### Pupil information
 
-pup_center_X, pup_center_Y, pupil_radius = get_radius_pupil(image1)
+pup_center_X, pup_center_Y, pupil_radius = get_pupil(image1)
 
-#print(pupil_radius, type(pupil_radius))
+print(pupil_radius)
 
 ### Create Mask
 
@@ -19,7 +19,7 @@ pupil_radius = int(pupil_radius)
 
 mask = np.zeros_like(image1)
 
-cv.circle(mask, (pup_center_X, pup_center_Y), radius = pupil_radius, color = (255,255,255), thickness = -1)
+cv.circle(mask, (pup_center_X, pup_center_Y), radius = 42, color = (255,255,255), thickness = -1)
 
 ### Apply Mask
 
@@ -41,6 +41,7 @@ rmax = int(0.4*width)
 
 obir = image1.copy()
 
+## Para que sirve el HoughCircles ?
 circles = cv.HoughCircles(edgemap, cv.HOUGH_GRADIENT, dp = 1.5, minDist = 250, #100
                            param1 = 100, param2 = 40, minRadius = rmin, maxRadius = rmax) #minRadius=90, maxRadius=110
 if circles is not None:
@@ -48,7 +49,7 @@ if circles is not None:
     for (x, y, r) in circles:
         cv.circle(obir, (x, y), r, (0, 255, 0), 2)
 
-plt.figure(figsize=(4, 2))
+plt.figure(figsize=(8, 4))
 plt.subplot(2, 2, 1)
 plt.imshow(image1, cmap='gray')
 plt.title('Real image')
@@ -62,6 +63,7 @@ plt.subplot(2, 2, 4)
 plt.imshow(obir, cmap='gray')
 plt.title('IrisOutbund')
 plt.show()
+
 
 
 # https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html

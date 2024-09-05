@@ -109,18 +109,38 @@ def getradiuspupil(iris_contour):
     #revisar el codigo de python find
     X_max = step.max()
     
-    #index_min = step.index(X_min)
-    index_min = np.argmin(X_min)
+    array_index_min = []
     
-    #index_max = step.index(X_max)
-    index_max = np.argmax(X_max)
+    array_index_max = []
+    
+    for k,j in enumerate(step):
+        
+        if j == X_min:
+            #Cual va ser la condición para escoger el indice correcto para todos los valores de X_min?
+            array_index_min = np.append(array_index_min, k)
+            
+        if j == X_max:
+            array_index_max = np.append(array_index_max, k)
+            
+    ni = int(len(array_index_min)/2)
+    
+    na = int(len(array_index_max)/2)
+    
+    index_min = int(array_index_min[ni])
+    
+    index_max = int(array_index_max[na])
+    
+    #print(type(index_min), type(index_max))
 
     Y_min = iris_contour[index_min][0][1] # borrar X_min y obtener la posicion donde se encontro el menor valor de X
+    
     Y_max = iris_contour[index_max][0][1] # borrar X_max y obtener la posicion donde se encontro el mayor valor de X
     
     #para esto creo que seria lo correcto utilizar el code find 
 
     PupilDiameter = np.sqrt((X_max - X_min)**2 + (Y_max - Y_min)**2)
+
     radiuspupil = 0.5*PupilDiameter # Finally, pupil radius is set as rp=0.2D 
     
     return radiuspupil
+
