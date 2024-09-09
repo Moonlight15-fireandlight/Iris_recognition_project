@@ -126,9 +126,9 @@ def getradiuspupil(iris_contour):
     
     na = int(len(array_index_max)/2)
     
-    index_min = int(array_index_min[ni])
+    index_min = int(array_index_min[0])
     
-    index_max = int(array_index_max[na])
+    index_max = int(array_index_max[0])
     
     #print(type(index_min), type(index_max))
 
