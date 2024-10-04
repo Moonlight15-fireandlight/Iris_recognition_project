@@ -32,9 +32,11 @@ def get_pupil(image):
 
     new_imageclosing = 0
 
-    while circularity < 0.95 :
+    beta = 1/nto
+
+    while circularity < 0.97 : #cambiando al limite de 0.97 para mayor precision para algunos circuos
     
-        nto = nto + 1
+        nto = nto + beta # (To + B) --> To , donde B =1/To
     
         new_image_thresholded = applyadpthershold(imagemed_gray, nto)
     

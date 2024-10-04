@@ -1,0 +1,97 @@
+Iris outbund 
+
+Para todas las imagenes se usaran los siguientes parametros para el filtro gaussiano: Size = (9,9), lambda = 6 
+
+
+S1002L03 - Canny Edge Detection (Hysteresis Thresholding : maxVal = 30, minVal = 10),
+	   MASK ( radius = pupil_radius + 4)
+	   HoughCircles ( dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+S1003R06 - Canny Edge Detection (Hysteresis Thresholding : maxVal = 30, minVal = 10),
+	   mask ( radius = pupil_radius + 4 ), (radius = pupi_radius)
+	   HoughCircles ( dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+
+S1004R01 - Canny Edge Detection ( Hysteresis Thresholding : maxVal = 30, minVal = 10 )
+	   mask ( radius = pupil_radius + 4 )
+	   HoughCircles ( dp= 1.5, minDist= 250, param1 = 100, param2 = 40 ) 
+
+S1005L01 - Canny Edge Detection (Hysteresis Thresholding : maxVal = 30, minVal = 10)
+	   Mask ( radius_pupil = pupil_radius + 4, (pup_center_X, pup_center_Y))
+	   HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+S1006R01 - Canny Edge Detection ( Hysteresi Thresholding: maxVal = 30, minVal = 10)
+	   Mask ( radius_pupil = pupil_radius +4)
+	   HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+S1007L01 - Canny Edge Detection ( Hysteresi Thresholding: maxVal = 30, minVal = 10)
+S1007L10   Mask ( radius_pupil = pupil_radius +4)
+	   HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+	   Observacion: Es claro la diferencia que existe entre el borde generado y el iris del ojo, es posible obtener un mejor resultado reduciendo el valor del thresholding del canny
+	   edge detection.
+
+S1008L02
+
+S1009L01
+
+S1010R02 - Canny Edge Detection ( Hysteresi Thresholding: maxVal = 30, minVal = 10)
+	   MASK ( radius_pupil = pupil_radius + 4, (pup_center_X, pup_center_Y))
+	   HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+S1011L02 - Canny Edge Detection ( Hysteresi Thresholding: maxVal = 30, minVal = 10)
+	   MASK ( radius_pupil = pupil_radius + 4, (pup_center_X, pup_center_Y))
+	   HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+S1012R01 - Hay un pequeño desfase entre el circulo trazado y en el borde del iris, para todas las imagenes de la carpeta 12
+S1012R03
+
+S1013L01 - ( no sirve debido al no encontrar la correcta posicion de la pupila)
+
+CASIA - 014 - L - S1014L01 - 
+
+CASIA - 015 - R - S1015R03 - 	Filter Gaussiano : size = (11,11), lambda = 6
+				Canny Edge Detection ( Hysteresi Thresholding: maxVal = 5, minVal = 20)
+				MASK ( radius_pupil = pupil_radius + 4, (pup_center_X, pup_center_Y))
+				HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+CASIA - 016 - L - S1016L01 - 
+CASIA - 016 - L - S1016L04 - Filter Gaussiano : size = (11,11), lambda = 6
+			     Canny Edge Detection ( Hysteresi Thresholding: maxVal = 5, minVal = 20)
+			     MASK ( radius_pupil = pupil_radius + 4, (pup_center_X, pup_center_Y))
+			     HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+
+CASIA - 017 - R - S1017R01 
+CASIA - 017 - R - S1017R06 - Filter Gaussiano : size = (9,9), lambda = 6
+			     Canny Edge Detection ( Hysteresis Thresholding: maxVal = 10, minVal = 30)
+			     MASK ( radius_pupil = pupil_radius + 4, (pup_center_X, pup_center_Y))
+			     HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40) - El resultado es igual 
+			     para ambos tipos de filtros gaussianos, pse observa que el borde del iris no es un circulo
+			     perfecto ..
+
+CASIA - 018 - R - S1018R01
+CASIA - 018 - R - S1018R02
+CASIA - 018 - R - S1018R03 - Solo resulta en la imagen 03 - Filter Gaussiano : size = (9,9) - (11,11), lambda = 6
+			   - Canny Edge Detection ( Hysteresis Thresholding: maxVal = 10, minVal = 30)
+			     MASK ( radius_pupil = pupil_radius + 4, (pup_center_X, pup_center_Y))
+			     HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+CASIA - 019 - L - S1019L02 - 
+			    MASK( radius_pupil = pupil_radius + 6, (pup_center_X, pup_center_Y))
+			    cv.HoughCircles(dp = 1, minDist = 250, param1 = 100, param2 = 40)
+
+CASIA - 020 - L - S1020L01
+
+
+S1025L02 - Canny Edge Detection (Hysteresis Thresholding : maxVal = 30, minVal = 10),
+	   Mask ( radius_pupil = pupil_radius + 4, (pup_center_X, pup_center_Y))
+	   HoughCircles (dp= 1, minDist= 100, param1 = 100, param2 = 40) - 
+	   nuevo parametros del HoughCircles(dp= 1.5, minDist= 250, param1 = 100, param2 = 40)
+
+
+
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3967427/
+https://www.worldscientific.com/doi/epdf/10.1142/S0218001403002733
+
+10-08-24

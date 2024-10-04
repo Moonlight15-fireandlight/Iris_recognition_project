@@ -1,0 +1,77 @@
+Imagen1 - 
+CASIA - 001 - L - S1001L01 (APPLYRRHERSHOLD) # kernel 01 (radius = 20), kernel 02 (radius=20)
+CASIA - 002 - L - S1002L01 (APPLYRRHERSHOLD) # kernel 01 (radius = 20), kernel 02 (radius=20) (medianBlur=blockadp=19) 
+CASIA - 003 - R - S1003R01 (APPLYADPTHRESHOLD) # kernel 01 (radius=2), kernel 02 (radius=20)(medianBlur=blockadp=19)
+CASIA - 004 - R - S1004R01 (APPLYADPTHRESHOLD) # kernel 01 (radius=3), kernel 02 (radius=20)(medianBlur=blockadp=19)
+CASIA - 005 - L - S1005L01 (APPLYADPTHRESHOLD) # kernel 01 (radius=3), kernel 02 (radius=20)(medianBlur=blockadp=19)
+CASIA - 006 - R - S1006R01 (APPLYADPTHRESHOLD) # kernel 01 (radius=2), kernel 02 (radius=20)(medianBlur=blockadp=19)
+CASIA - 007 - L - S1007L01 (APPLYADPTHRESHOLD) # kernel 01 (radius=3), kernel 02 (radius=20)(medianBlur=blockadp=19)
+CASIA - 008 - L - S1008L02
+
+
+
+------- AlgoritmoPupilContour2605 ------
+CASIA - 011 - L - S1011L01 (APPLYADPTHRESHOLD) (falla)
+CASIA - 012 - R - S1012R01 (APPLYADPTHRESHOLD) # kernel 01 (radius=3), kernel 02 (radius=20)(medianBlur=21, blockadp=17) 
+CASIA - 013 - L - S1013L01 (APPLYADPTHRESHOLD) # kernel 01 (radius=3), kernel 02 (radius=20)(medianBlur=21, blockadp=17) 
+CASIA - 014 - L - S1014L01 (APPLYADPTHRESHOLD) # kernel 01 (radius=3), kernel 02 (radius=20)(medianBlur=21, blockadp=19) 
+S1015R01 # kernel 01 (radius=3), kernel 02 (radius=20)(medianBlur=21, blockadp=19) 
+CASIA - 016 - L - S1016L01 (APPLYADPTHRESHOLD) (falla)
+CASIA - 017 - R - S1017R01 (APPLYADPTHRESHOLD) # kernel 01 (radius=3), kernel 02 (radius=20)(medianBlur=21, blockadp=19)
+CASIA - 018 - R - S1018R01 (APPLYADPTHRESHOLD) # kernel 01 (radius=1), kernel 02 (radius=20)(medianBlur=21, blockadp=19) En este caso se observa un mejor resultado del iris con solo la parte del closing
+CASIA - 019 - L - S1019L02 (APPLYADPTHRESHOLD) # kernel 01 (radius=3), kernel02 (radius=20)(medianBlur=21, blockadp=19)
+CASAI - 020 - L - S1020L01 (APPLYADPTHRESHOLD) # kernel 01 (radius=3), kernel02 (radius=20)(medianBlur=21, blockadp=17)
+S1020L01
+
+-----------EXTRACT_ADAPTIVE_THRESHOLD (PUPIL)-----------
+
+CASIA - 003 - R - S1003R01 (APPLYADPTHRESHOLD) # n = 30 %, radius_kernel01=16, radius_kernel02=20
+CASIA - 004 - R - S1004R01 (APPLYADPTHRESHOLD) # n = 20 %, radius_kernel01=2, radius_kernel02=20 (para este caso si se utiliza la operacion closing),
+CASIA - 005 - L - S1005L01 (APPLYADPTHRESHOLD) # n = 20 %, radius_kernel01=2, radius_kernel02=20
+CASIA - 006 - R - S1006R01 (APPLYADPTHRESHOLD) # n = 20 %, radius_kernel01=2, con 5 desparace el ruido, radius_kernel02=20
+CASIA - 007 - L - S1007L01 (APPLYADPTHRESHOLD) # n = 20 %, radius_kernel01=2, con 5 desparace el ruido, radius_kernel02=20
+CASIA - 008 - L - S1008L02 (APPLYADPTHRESHOLD) # n = 30 % (con un n = 20% el iris desaparece la mitad), radius_kernel01=2, radius_kernel02=20
+CASIA - 009 - L - S1009L01 (APPLYADPTHRESHOLD) # n = 20 % (se requiere utilizar las operaciones morfologicas) - n = 30% (no es necesario realizar operaciones)
+CASIA - 010 - R - S1010R01 (APPLYADPTHRESHOLD) # n = 20 % (perfercto)
+CASIA - 011 - L - S1011L01 (APPLYADPTHRESHOLD) # Area = 4630.5, perimeter = 244.18, Circularity = 0.9759275402211237
+CASIA - 012 - R - S1012R01 (APPLYADPTHRESHOLD) # Area = 4044.5, perimeter = 228.4 (hay 2 valores), Circularity = 0.9738506960254177
+CASIA - 013 - L - S1013L01 (APPLYADPTHRESHOLD) ( ERROR - APLICANDO UN CAMBIO AL ALGORITMO) Existe problemas debido a que existe una region pertenecientes a las cejas y este es mas grande que la pupila
+CASIA - 014 - L - S1014L01 (APPLYADPTHRESHOLD) # Area = 4966.5, perimeter = 253.1 (2 opciones), Circularity = 0.9744935605818021
+CASIA - 015 - R - S1015R01 # AREA = 3692.5, perimeter = 218.6, Circularity = 0.9710241981854345
+CASIA - 016 - L - S1016L01 # Area = 5087.5, perimeter = 256.29, Circularity = 0.9733095039379622
+CASIA - 017 - R - S1017R01 # Area = 3468.0, perimeter = 212.24, Circularity = 0.9674632543598811 (Realizar la prueba para aumentar el threshold y Circularity)
+CASIA - 018 - R - S1018R01 (APPLYADPTHRESHOLD)( ERROR - APLICANDO UN CAMBIO AL ALGORITMO) 
+### Analisis para la imagen 018 ###
+Va haber 1 punto donde el threshold va aumentar lo suficiente como para que el area del iris se
+distorsiones tanto que el area a tomar sera de otras regiones igual que el perimetro. Con la imagen
+018 se llego a una circularity de 0.95 correcta en un threshold de 110.
+CASIA - 019 - L - S1019L02 (APPLYADPTHRESHOLD) Area = 5491.5, perimeter = 266.58, Circularity = 0.971
+CASAI - 020 - L - S1020L01 (APPLYADPTHRESHOLD) Area = 4847.5, perimeter = 250.44, Circularity = 0.971
+CASIA - 021 - L - S1021L02 (APPLYADPTHRESHOLD) area = 3662.0, perimeter = 227.42, Circularity = 0.89
+Aplicamos el algoritmo creado para aumentar el threshold en función de la circularidad del iris y se 
+obtiene un valor de circularity = 0.975, para un threshold de 112.004... pero este necesita que aumentemos el radio de la operacion
+morfologica (radius 1) probando ( radius1 = 20)
+CASIA - 022 - L - S1022L03 (es posible alcanzar una circularidad de 0.952, no funciona para una alcanzar una
+circularidad igual a 0.96)
+CASIA - 023 - R - S1023R03 (Area = 1814.0, perimeter = 155.12, Circularity = 0.947)( se intento obtener una imagen con circulariy igual a 0.95, pero este falla 
+ya que el ruido afecta y la circularida obtenida no incluye solo el iris).
+CASIA - 024 - R - S1024R01 (Area = 4886.5, perimeter = 250.55, Circularity = 0.978)
+CASIA - 025 - L - S1025L02 (Area = 3073.5, perimeter = 199.87, circularity = 0.967)
+
+
+
+Panchito1803
+
+
+
+CASIA - 016 - L - S1016L01 (APPLYADPTHRESHOLD) # n= 20 % (el circulo no es perfecto), n = 30 % (el circulo es mejor) el radius de la operacion morfologica opening debe aumentarse (radio1 = 10)
+https://www.crisluengo.net/archives/310/
+
+How to find el index of the minimun and maximun value of 1 array?
+
+
+
+
+
+
+
